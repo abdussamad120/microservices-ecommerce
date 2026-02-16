@@ -42,8 +42,10 @@ const AddBanner = ({ bannerToEdit, onSuccess }: AddBannerProps) => {
             title: bannerToEdit?.title || "",
             image: bannerToEdit?.image || "",
             link: bannerToEdit?.link || "",
-            description: bannerToEdit?.description || "",
-            textColor: bannerToEdit?.textColor || "#ffffff",
+            // @ts-ignore
+            description: (bannerToEdit as any)?.description || "",
+            // @ts-ignore
+            textColor: (bannerToEdit as any)?.textColor || "#ffffff",
             // @ts-ignore - showTitle might be missing from generated types yet
             showTitle: bannerToEdit?.showTitle ?? true,
         },
