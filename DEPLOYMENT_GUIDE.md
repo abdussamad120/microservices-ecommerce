@@ -55,5 +55,4 @@ graph TD
     Order --> Mongo
 ```
 
-## "Legacy" Xiaomi Project
-Your Xiaomi project is a separate entity. If you wish to deploy it, follow similar steps but treat it as a separate application stack.
+
