@@ -47,8 +47,9 @@ const SettingsPage = () => {
 
   // Initialize email from Clerk
   useEffect(() => {
-    if (user?.emailAddresses?.[0]?.emailAddress) {
-      setLocalSettings(prev => ({ ...prev, email: user.emailAddresses![0].emailAddress }));
+    const email = user?.emailAddresses?.[0]?.emailAddress;
+    if (email) {
+      setLocalSettings(prev => ({ ...prev, email }));
     }
   }, [user]);
 
