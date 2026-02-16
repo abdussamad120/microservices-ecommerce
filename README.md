@@ -21,8 +21,8 @@ graph TD
     Admin((Admin))
     
     subgraph Frontend
-        Client[Storefront (Next.js 15)] -->|Port 3500| Gateway
-        Dash[Admin Panel (Next.js 15)] -->|Port 3501| Gateway
+        Client["Storefront (Next.js 15)"] -->|Port 3500| Gateway
+        Dash["Admin Panel (Next.js 15)"] -->|Port 3501| Gateway
     end
     
     subgraph Services
