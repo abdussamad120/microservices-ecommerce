@@ -9,6 +9,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { CurrencyProvider } from "@/context/CurrencyContext";
 import { SoundProvider } from "@/components/SoundController";
+import { Suspense } from "react";
 
 import Providers from "@/components/Providers";
 
@@ -59,7 +60,9 @@ export default function RootLayout({
             <Providers>
               <CurrencyProvider>
                 <SoundProvider>
-                  <Navbar />
+                  <Suspense fallback={<div className="h-16 bg-background/75 backdrop-blur-3xl" />}>
+                    <Navbar />
+                  </Suspense>
                   <div className="mx-auto p-4 sm:px-0 sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl min-h-screen">
                     {children}
                   </div>
