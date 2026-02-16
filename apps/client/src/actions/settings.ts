@@ -5,7 +5,7 @@ import { prisma } from "@repo/product-db";
 export async function getSettings() {
     try {
         // Find the first settings record or create default
-        let settings = await prisma.settings.findFirst();
+        const settings = await prisma.settings.findFirst();
 
         if (!settings) {
             return null;
@@ -13,7 +13,7 @@ export async function getSettings() {
 
         return settings;
     } catch (error) {
-        console.error("Failed to fetch settings:", error);
+        console.warn("Failed to fetch settings (likely during build):", error);
         return null;
     }
 }
