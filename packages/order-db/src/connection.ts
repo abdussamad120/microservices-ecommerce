@@ -1,11 +1,9 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGO_URL;
+const MONGODB_URI = process.env.MONGO_URL || "";
 
 if (!MONGODB_URI) {
-  throw new Error(
-    "Please define the MONGO_URL environment variable inside .env"
-  );
+  console.warn("MONGO_URL is not defined in .env. Helper functions may fail.");
 }
 
 /**
