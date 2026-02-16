@@ -14,7 +14,7 @@ import {
 } from "@clerk/nextjs";
 import { useTheme } from "next-themes";
 import ProfileButton from "./ProfileButton";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 import CurrencySelector from "./CurrencySelector";
 import NavMegaMenu from "./NavMegaMenu";
@@ -105,7 +105,9 @@ const Navbar = () => {
           <div className="flex items-center gap-4">
             {/* SearchBar */}
             <div className="hidden sm:block w-full max-w-sm flex-1 mx-4">
-              <SearchBar />
+              <Suspense fallback={<div className="w-full h-12 bg-muted/40 rounded-full animate-pulse" />}>
+                <SearchBar />
+              </Suspense>
             </div>
 
 
