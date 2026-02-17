@@ -1,4 +1,4 @@
-import { Banner } from "@repo/product-db";
+import type { Banner } from "@repo/product-db";
 import { z } from "zod";
 
 export type BannerType = Banner;
