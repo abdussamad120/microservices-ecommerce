@@ -1,5 +1,5 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
-import { CustomJwtSessionClaims } from "@repo/types";
+import type { CustomJwtSessionClaims } from "@repo/types";
 import { NextResponse } from "next/server";
 
 const isPublicRoute = createRouteMatcher(["/sign-in(.*)", "/unauthorized(.*)"]);
@@ -19,7 +19,7 @@ export default clerkMiddleware(
         }
       }
     }
-    
+
     return NextResponse.next();
   },
   { debug: false }
