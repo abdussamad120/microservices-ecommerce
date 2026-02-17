@@ -5,8 +5,10 @@
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
-    "dev": "pnpm dlx tsx --env-file=.env --watch src/index.ts",
-    "check-types": "tsc --noEmit"
+    "dev": "tsx --env-file=.env --watch src/index.ts",
+    "check-types": "tsc --noEmit",
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "ABDUS SAMAD RAEEN",

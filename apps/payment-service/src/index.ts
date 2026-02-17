@@ -63,13 +63,14 @@ app.route("/webhooks", webhookRoute);
 const start = async () => {
   try {
     // Start the server first
+    const port = Number(process.env.PORT) || 8002;
     serve(
       {
         fetch: app.fetch,
-        port: 8002,
+        port,
       },
       (info) => {
-        console.log(`Payment service is running on port 8002`);
+        console.log(`Payment service is running on port ${port}`);
       }
     );
 

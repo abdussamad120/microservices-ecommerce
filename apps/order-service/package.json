@@ -8,7 +8,9 @@
     "check-types": "tsc --noEmit",
     "dev": "tsx --env-file=.env --watch src/index.ts",
     "count:orders": "tsx src/count_orders.ts",
-    "verify:stats": "tsx src/verify_stats.ts"
+    "verify:stats": "tsx src/verify_stats.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "ABDUS SAMAD RAEEN",

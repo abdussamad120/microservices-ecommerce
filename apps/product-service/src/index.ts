@@ -61,8 +61,9 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
 const start = async () => {
   try {
     // Start server first, then connect to Kafka
-    app.listen(8000, "0.0.0.0", () => {
-      console.log("Product service is running on 8000");
+    const port = process.env.PORT || 8000;
+    app.listen(port, () => {
+      console.log(`Product service is running on ${port}`);
     });
 
     // Connect to Kafka in background (non-blocking)

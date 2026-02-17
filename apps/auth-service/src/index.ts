@@ -49,8 +49,9 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
 const start = async () => {
   try {
     // Start server first
-    app.listen(8003, "0.0.0.0", () => {
-      console.log("Auth service is running on 8003");
+    const port = process.env.PORT || 8003;
+    app.listen(port, () => {
+      console.log(`Auth service is running on ${port}`);
     });
 
     // Connect to Kafka in background (non-blocking)

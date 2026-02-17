@@ -65,8 +65,9 @@ fastify.register(analyticsRoute);
 const start = async () => {
   try {
     // Start the HTTP server first
-    await fastify.listen({ port: 8005, host: '0.0.0.0' });
-    console.log("Order service is running on port 8005");
+    const port = Number(process.env.PORT) || 8005;
+    await fastify.listen({ port, host: '0.0.0.0' });
+    console.log(`Order service is running on port ${port}`);
 
     // Connect to MongoDB in background (non-blocking but log errors)
     connectOrderDB()
