@@ -8,7 +8,15 @@ import { producer } from "./utils/kafka.js";
 const app = express();
 app.use(
   cors({
-    origin: ["http://localhost:3500", "http://localhost:3501", "http://localhost:3000", "http://127.0.0.1:3500", "http://127.0.0.1:3501", "http://127.0.0.1:3000"],
+    origin: [
+      "http://localhost:3500",
+      "http://localhost:3501",
+      "http://localhost:3000",
+      "http://127.0.0.1:3500",
+      "http://127.0.0.1:3501",
+      "http://127.0.0.1:3000",
+      /\.vercel\.app$/,
+    ],
     credentials: true,
   })
 );

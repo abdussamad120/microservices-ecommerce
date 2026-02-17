@@ -9,7 +9,15 @@ import { runKafkaSubscriptions } from "./utils/subscriptions.js";
 import webhookRoute from "./routes/webhooks.route.js";
 
 const app = new Hono();
-app.use("*", cors({ origin: ["http://localhost:3500", "http://localhost:3501", "http://localhost:3000"], credentials: true }));
+app.use("*", cors({
+  origin: [
+    "http://localhost:3500",
+    "http://localhost:3501",
+    "http://localhost:3000",
+    /\.vercel\.app$/,
+  ],
+  credentials: true,
+}));
 app.use("*", clerkMiddleware());
 
 app.get("/", (c) => {
