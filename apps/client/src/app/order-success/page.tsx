@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle2, Package, MapPin, CreditCard, ArrowRight, Home, Copy, Check } from "lucide-react";
@@ -320,4 +320,10 @@ const OrderSuccessPage = () => {
   );
 };
 
-export default OrderSuccessPage;
+const OrderSuccessPageWrapper = () => (
+  <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gray-50"><div className="animate-pulse text-gray-400">Loading order details...</div></div>}>
+    <OrderSuccessPage />
+  </Suspense>
+);
+
+export default OrderSuccessPageWrapper;

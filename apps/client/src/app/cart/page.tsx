@@ -7,7 +7,7 @@ import { CartItemsType, ShippingFormInputs } from "@repo/types";
 import { ArrowRight, Trash2 } from "lucide-react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useAuth } from "@clerk/nextjs";
 
 const steps = [
@@ -243,4 +243,10 @@ const CartPage = () => {
   );
 };
 
-export default CartPage;
+const CartPageWrapper = () => (
+  <Suspense fallback={<div className="min-h-[60vh] flex items-center justify-center"><div className="animate-pulse text-gray-400">Loading cart...</div></div>}>
+    <CartPage />
+  </Suspense>
+);
+
+export default CartPageWrapper;
