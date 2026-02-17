@@ -17,6 +17,8 @@ const getData = async (): Promise<ProductsType> => {
   }
 };
 
+export const dynamic = "force-dynamic";
+
 const ProductPage = async () => {
   const data = await getData();
   return (

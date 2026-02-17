@@ -24,6 +24,8 @@ const getData = async (): Promise<OrderType[]> => {
   }
 };
 
+export const dynamic = "force-dynamic";
+
 const OrdersPage = async () => {
   const data = await getData();
   return (
