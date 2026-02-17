@@ -50,7 +50,6 @@
     "zod": "^4.1.9"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
     "@repo/types": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@tailwindcss/postcss": "^4",
