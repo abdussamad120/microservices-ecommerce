@@ -1,5 +1,6 @@
-import sendMail from "./utils/mailer";
+import sendMail from "./utils/mailer.js";
 import { createConsumer, createKafkaClient } from "@repo/kafka";
+import http from "node:http";
 
 const kafka = createKafkaClient("email-service");
 const consumer = createConsumer(kafka, "email-service");
@@ -16,6 +17,22 @@ const getPaymentMethodLabel = (method: string) => {
 };
 
 const start = async () => {
+  // Start HTTP server for Render health checks
+  const server = http.createServer((req, res) => {
+    if (req.url === "/health" || req.url === "/") {
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ status: "ok", service: "email-service" }));
+    } else {
+      res.writeHead(404);
+      res.end();
+    }
+  });
+
+  const port = process.env.PORT || 8003;
+  server.listen(port, () => {
+    console.log(`Email service listening on port ${port}`);
+  });
+
   try {
     await consumer.connect();
     await consumer.subscribe([
