@@ -1,5 +1,5 @@
 import Fastify from "fastify";
-import Clerk from "@clerk/fastify";
+import { clerkPlugin } from "@clerk/fastify";
 import cors from "@fastify/cors";
 import { shouldBeUser } from "./middleware/authMiddleware.js";
 import { connectOrderDB } from "@repo/order-db";
@@ -15,7 +15,7 @@ fastify.register(cors, {
   credentials: true,
 });
 
-fastify.register(Clerk.clerkPlugin);
+fastify.register(clerkPlugin);
 
 fastify.get("/", (request, reply) => {
   return reply.status(200).send({
