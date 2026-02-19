@@ -1,9 +1,9 @@
 import { FastifyInstance } from "fastify";
-import { shouldBeAdmin, shouldBeUser } from "../middleware/authMiddleware";
+import { shouldBeAdmin, shouldBeUser } from "../middleware/authMiddleware.js";
 import { Order } from "@repo/order-db";
 import { startOfMonth, subMonths } from "date-fns";
 import { OrderChartType } from "@repo/types";
-import { producer } from "../utils/kafka";
+import { producer } from "../utils/kafka.js";
 
 export const orderRoute = async (fastify: FastifyInstance) => {
   fastify.get(
@@ -521,3 +521,4 @@ export const orderRoute = async (fastify: FastifyInstance) => {
 };
 
 export default orderRoute;
+

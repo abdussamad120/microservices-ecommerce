@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { shouldBeAdmin } from "../middleware/authMiddleware";
+import { shouldBeAdmin } from "../middleware/authMiddleware.js";
 import { Order } from "@repo/order-db";
 
 interface AnalyticsTrend {
@@ -185,3 +185,4 @@ export const analyticsRoute = async (fastify: FastifyInstance) => {
         }
     );
 };
+

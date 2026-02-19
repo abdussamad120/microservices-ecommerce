@@ -1,6 +1,6 @@
 import { Hono } from "hono";
-import stripe from "../utils/stripe";
-import { shouldBeUser } from "../middleware/authMiddleware";
+import stripe from "../utils/stripe.js";
+import { shouldBeUser } from "../middleware/authMiddleware.js";
 import { CartItemsType } from "@repo/types";
 
 
@@ -94,3 +94,4 @@ sessionRoute.get("/:session_id", async (c) => {
 });
 
 export default sessionRoute;
+
