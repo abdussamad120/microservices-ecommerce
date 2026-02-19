@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["@react-three/drei", "@react-three/fiber", "three"],
+  transpilePackages: ["@react-three/drei", "@react-three/fiber", "three", "@repo/types"],
   serverExternalPackages: ["mongoose", "mongodb"],
   images: {
     remotePatterns: [
@@ -26,6 +26,12 @@ const nextConfig: NextConfig = {
         hostname: "placehold.co",
       },
     ],
+  },
+  webpack: (config) => {
+    config.resolve.extensionAlias = {
+      ".js": [".ts", ".tsx", ".js", ".jsx"],
+    };
+    return config;
   },
 };
 
