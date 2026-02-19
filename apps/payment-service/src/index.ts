@@ -10,12 +10,18 @@ import webhookRoute from "./routes/webhooks.route.js";
 
 const app = new Hono();
 app.use("*", cors({
-  origin: [
-    "http://localhost:3500",
-    "http://localhost:3501",
-    "http://localhost:3000",
-    /\.vercel\.app$/,
-  ],
+  origin: (origin) => {
+    if (!origin) return null;
+    if (
+      origin === "http://localhost:3500" ||
+      origin === "http://localhost:3501" ||
+      origin === "http://localhost:3000" ||
+      /\.vercel\.app$/.test(origin)
+    ) {
+      return origin;
+    }
+    return null;
+  },
   credentials: true,
 }));
 app.use("*", clerkMiddleware());
