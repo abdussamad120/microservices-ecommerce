@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { prisma } from "@repo/product-db";
-import { shouldBeUser } from "../middleware/authMiddleware";
+import { shouldBeUser } from "../middleware/authMiddleware.js";
 
 const router: Router = Router();
 
@@ -66,3 +66,4 @@ router.put("/", shouldBeUser, async (req, res) => {
 });
 
 export default router;
+

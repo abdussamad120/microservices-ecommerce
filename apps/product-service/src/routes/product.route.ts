@@ -5,8 +5,8 @@ import {
   getProduct,
   getProducts,
   updateProduct,
-} from "../controllers/product.controller";
-import { shouldBeAdmin } from "../middleware/authMiddleware";
+} from "../controllers/product.controller.js";
+import { shouldBeAdmin } from "../middleware/authMiddleware.js";
 
 const router: Router = Router();
 
@@ -17,3 +17,4 @@ router.get("/", getProducts);
 router.get("/:id", getProduct);
 
 export default router;
+

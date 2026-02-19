@@ -4,8 +4,8 @@ import {
   deleteBanner,
   getBanners,
   updateBanner,
-} from "../controllers/banner.controller";
-import { shouldBeAdmin } from "../middleware/authMiddleware";
+} from "../controllers/banner.controller.js";
+import { shouldBeAdmin } from "../middleware/authMiddleware.js";
 
 const router: express.Router = express.Router();
 
@@ -15,3 +15,4 @@ router.put("/:id", shouldBeAdmin, updateBanner);
 router.delete("/:id", shouldBeAdmin, deleteBanner);
 
 export default router;
+

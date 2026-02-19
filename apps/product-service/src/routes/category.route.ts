@@ -4,8 +4,8 @@ import {
   deleteCategory,
   getCategories,
   updateCategory,
-} from "../controllers/category.controller";
-import { shouldBeAdmin } from "../middleware/authMiddleware";
+} from "../controllers/category.controller.js";
+import { shouldBeAdmin } from "../middleware/authMiddleware.js";
 
 const router: Router = Router();
 
@@ -15,3 +15,4 @@ router.delete("/:id", shouldBeAdmin, deleteCategory);
 router.get("/", getCategories);
 
 export default router;
+

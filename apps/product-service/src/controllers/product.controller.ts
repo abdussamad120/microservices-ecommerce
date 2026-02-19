@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { prisma, Prisma } from "@repo/product-db";
-import { producer } from "../utils/kafka";
+import { producer } from "../utils/kafka.js";
 import { StripeProductType } from "@repo/types";
 
 export const createProduct = async (req: Request, res: Response) => {
@@ -215,3 +215,4 @@ export const getProduct = async (req: Request, res: Response) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+

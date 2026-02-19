@@ -2,7 +2,7 @@ import express, { NextFunction, Request, Response } from "express";
 import cors from "cors";
 import { clerkMiddleware } from "@clerk/express";
 import { shouldBeAdmin, shouldBeUser } from "./middleware/authMiddleware.js";
-import userRoute from "./routes/user.route";
+import userRoute from "./routes/user.route.js";
 import { producer } from "./utils/kafka.js";
 
 const app = express();
@@ -73,3 +73,4 @@ const start = async () => {
 };
 
 start();
+

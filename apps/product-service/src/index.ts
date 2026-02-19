@@ -2,11 +2,11 @@ import express, { NextFunction, Request, Response } from "express";
 import cors from "cors";
 import { clerkMiddleware, getAuth } from "@clerk/express";
 import { shouldBeUser } from "./middleware/authMiddleware.js";
-import productRouter from "./routes/product.route";
-import categoryRouter from "./routes/category.route";
-import bannerRouter from "./routes/banner.route";
-import settingsRouter from "./routes/settings.route";
-import ecosystemRouter from "./routes/ecosystem.route";
+import productRouter from "./routes/product.route.js";
+import categoryRouter from "./routes/category.route.js";
+import bannerRouter from "./routes/banner.route.js";
+import settingsRouter from "./routes/settings.route.js";
+import ecosystemRouter from "./routes/ecosystem.route.js";
 import { consumer, producer } from "./utils/kafka.js";
 const app = express();
 app.use(
@@ -82,3 +82,4 @@ const start = async () => {
 };
 
 start();
+
