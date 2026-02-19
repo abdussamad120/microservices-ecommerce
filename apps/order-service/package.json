@@ -18,16 +18,16 @@
   "devDependencies": {
     "@repo/types": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "^20",
-    "tsx": "^4.20.5",
-    "typescript": "^5.9.2"
+    "@types/node": "^20.19.33",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
-    "@clerk/fastify": "^2.4.30",
+    "@clerk/fastify": "^2.6.24",
     "@fastify/cors": "^11.2.0",
     "@repo/kafka": "workspace:*",
     "@repo/order-db": "workspace:*",
     "date-fns": "^4.1.0",
-    "fastify": "^5.5.0"
+    "fastify": "^5.7.4"
   }
 }

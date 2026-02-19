@@ -13,13 +13,13 @@
   "author": "ABDUS SAMAD RAEEN",
   "license": "ISC",
   "dependencies": {
-    "nodemailer": "^7.0.6",
     "@repo/kafka": "workspace:*",
-    "@repo/types": "workspace:*"
+    "@repo/types": "workspace:*",
+    "nodemailer": "^7.0.13"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "^24.5.2",
-    "@types/nodemailer": "^7.0.1"
+    "@types/node": "^24.10.13",
+    "@types/nodemailer": "^7.0.10"
   }
 }
