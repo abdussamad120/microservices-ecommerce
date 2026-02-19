@@ -85,7 +85,7 @@ export const orderRoute = async (fastify: FastifyInstance) => {
           delivered: result.delivered || 0,
           success: result.success || 0,
           cancelled: result.cancelled || 0,
-          total: Object.values(result).reduce((a: number, b: number) => a + b, 0)
+          total: (Object.values(result) as number[]).reduce((a, b) => a + b, 0)
         };
 
         return reply.send(finalStats);
