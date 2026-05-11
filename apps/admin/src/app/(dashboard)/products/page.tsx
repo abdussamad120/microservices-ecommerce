@@ -5,14 +5,27 @@ import AddProductButton from "@/components/AddProductButton";
 
 const getData = async (): Promise<ProductsType> => {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_PRODUCT_SERVICE_URL}/products`,
-      { cache: "no-store" }
-    );
+    const baseUrl = process.env.NEXT_PUBLIC_PRODUCT_SERVICE_URL;
+
+    if (!baseUrl) {
+      console.error("NEXT_PUBLIC_PRODUCT_SERVICE_URL is not defined");
+      return [];
+    }
+
+    const res = await fetch(`${baseUrl}/products`, { cache: "no-store" });
+
+    if (!res.ok) {
+      const errorText = await res.text().catch(() => "No error body");
+      console.error(
+        `Failed to fetch products: ${res.status} ${res.statusText}. Body: ${errorText}`
+      );
+      return [];
+    }
+
     const data = await res.json();
     return data;
   } catch (error) {
-    console.log(error);
+    console.error("Error fetching data:", error);
     return [];
   }
 };

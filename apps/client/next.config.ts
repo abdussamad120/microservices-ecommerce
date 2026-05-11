@@ -28,6 +28,7 @@ const nextConfig: NextConfig = {
     ],
   },
   webpack: (config) => {
+    // @ts-ignore - extensionAlias is a Webpack 5 feature used for ESM compatibility in this monorepo
     config.resolve.extensionAlias = {
       ".js": [".ts", ".tsx", ".js", ".jsx"],
     };

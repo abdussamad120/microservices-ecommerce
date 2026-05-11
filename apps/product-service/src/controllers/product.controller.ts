@@ -60,7 +60,9 @@ export const createProduct = async (req: Request, res: Response) => {
     console.error("Error creating product:", err);
     try {
       const fs = await import("node:fs");
-      fs.writeFileSync("e:/microservices-ecommerce-main/product_error.log", JSON.stringify({ error: err.message, stack: err.stack, body: req.body }, null, 2));
+      const path = await import("node:path");
+      const errorLogPath = path.join(process.cwd(), "product_error.log");
+      fs.writeFileSync(errorLogPath, JSON.stringify({ error: err.message, stack: err.stack, body: req.body }, null, 2));
     } catch (e) {
       console.error("Failed to write error log", e);
     }
@@ -115,7 +117,9 @@ export const updateProduct = async (req: Request, res: Response) => {
     console.error("Error updating product:", err);
     try {
       const fs = await import("node:fs");
-      fs.writeFileSync("e:/microservices-ecommerce-main/product_update_error.log", JSON.stringify({ error: err.message, stack: err.stack, body: req.body }, null, 2));
+      const path = await import("node:path");
+      const errorLogPath = path.join(process.cwd(), "product_update_error.log");
+      fs.writeFileSync(errorLogPath, JSON.stringify({ error: err.message, stack: err.stack, body: req.body }, null, 2));
     } catch (e) {
       console.error("Failed to write error log", e);
     }

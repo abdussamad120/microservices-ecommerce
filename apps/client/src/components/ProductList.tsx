@@ -16,12 +16,21 @@ const fetchData = async ({
   params: "homepage" | "products";
 }) => {
   try {
-    const url = `${process.env.NEXT_PUBLIC_PRODUCT_SERVICE_URL}/products?${category && category !== "all" ? `category=${category}` : ""}${search ? `&search=${search}` : ""}&sort=${sort || "newest"}${params === "homepage" ? "&limit=8" : ""}`;
+    const baseUrl = process.env.NEXT_PUBLIC_PRODUCT_SERVICE_URL;
+    
+    if (!baseUrl) {
+      console.error("NEXT_PUBLIC_PRODUCT_SERVICE_URL is not defined in environment variables");
+      return [];
+    }
 
+    const url = `${baseUrl}/products?${category && category !== "all" ? `category=${category}` : ""}${search ? `&search=${search}` : ""}&sort=${sort || "newest"}${params === "homepage" ? "&limit=8" : ""}`;
+
+    console.log(`Fetching products from: ${url}`);
     const res = await fetch(url, { cache: "no-store" });
 
     if (!res.ok) {
-      console.error("Failed to fetch products:", res.status, res.statusText);
+      const errorText = await res.text().catch(() => "No error body");
+      console.error(`Failed to fetch products: ${res.status} ${res.statusText}. Body: ${errorText}`);
       return [];
     }
 
