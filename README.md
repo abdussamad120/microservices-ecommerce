@@ -1,5 +1,7 @@
 # 🚀 Microservices E-commerce Platform
+## 🚀 Project Overview
 
+- [Full-Stack Microservices E-Commerce Xiaomi Platform](http://www.youtube.com/watch?v=Mkb6eFCAsHo) - A comprehensive guide on building a distributed e-commerce system using microservices architecture.
 > **Developed by ABDUS SAMAD RAEEN**
 
 ![License](https://img.shields.io/badge/license-Private-red.svg)
